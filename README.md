@@ -12,9 +12,9 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 1. Clone o repositório
 
-- `git clone git@github.com:tryber/sd-0x-ting.git`.
+- `git clone git@github.com:tryber/sd-02-ting.git`.
 - Entre na pasta do repositório que você acabou de clonar:
-  - `sd-0x-ting`
+  - `sd-02-ting`
 
 2. Crie o ambiente virtual para o projeto
 
