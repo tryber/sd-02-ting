@@ -6,12 +6,13 @@ def check_comparison(item, item_to_check, exception_message):
     if item != item_to_check:
         raise ValueError(exception_message)
 
+
 def txt_importer(path_file):
     try:
         with open(path_file, "r") as file:
             extension = os.path.splitext(path_file)[1]
             check_comparison(extension, ".txt", "Formato inválido")
-            content = file.read().split(sep = '\n')
+            content = file.read().split(sep="\n")
             return content
 
     except FileNotFoundError:

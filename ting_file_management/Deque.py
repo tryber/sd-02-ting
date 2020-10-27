@@ -8,8 +8,8 @@ class Deque:
     def __len__(self):
         return len(self._data)
 
-    def __str__(self):
-        return "Deque(" + ", ".join(map(lambda x: str(x), self._data)) + ")"
+    def __iter__(self):
+        return iter(self._data)
 
     def push_back(self, value):
         if value["nome_do_arquivo"] not in self.file_names:
@@ -19,11 +19,13 @@ class Deque:
 
     def pop_front(self):
         if self._data:
-            removed_element = self._data.pop(self.FIRST_ELEMENT)
-            self.file_names.remove(removed_element["nome_do_arquivo"])
-            print(f"Arquivo {removed_element['nome_do_arquivo']} removido com sucesso")
+            rm = self._data.pop(self.FIRST_ELEMENT)
+            self.file_names.remove(rm["nome_do_arquivo"])
+            print(
+                f"Arquivo {rm['nome_do_arquivo']} removido com sucesso"
+            )
         else:
-            print('Não há elementos')
+            print("Não há elementos")
         return None
 
     def peek_by_position(self, position):
