@@ -8,7 +8,11 @@ def process(class_instance, path_file):
     except FileNotFoundError:
         print(f"Arquivo {path_file} não encontrado", file=sys.stderr)
         return
-    if path_file in class_instance._file_names:
+    except ValueError:
+        print("Formato inválido", file=sys.stderr)
+        return
+
+    if class_instance.file_contains(path_file):
         print(f"Arquivo {path_file} já encontrado", file=sys.stderr)
         return
     result = {
@@ -17,20 +21,24 @@ def process(class_instance, path_file):
         "conteudo_arquivo": text,
     }
     class_instance.push_back(result)
-    class_instance._file_names.add(path_file)
-    print(result)
+    # print(result)
     return
 
 
 def remove(class_instance):
-    if class_instance.__len__() == 0:
+    if len(class_instance) <= 1:
         print('Não há o que remover!', file=sys.stderr)
         return
     item = class_instance.pop_front()
-    class_instance._file_names.remove(item['nome_do_arquivo'])
+    # class_instance._file_names.remove(item['nome_do_arquivo'])
     print(f'Arquivo {item["nome_do_arquivo"]} removido com sucesso')
     return
 
 
-def file_metadata(position):
-    raise NotImplementedError
+def file_metadata(class_instance, position):
+    item = class_instance.peek(position)
+    if item == 'Posição inválida':
+        print('Posição inválida', file=sys.stderr)
+        return
+    print(item)
+    return
