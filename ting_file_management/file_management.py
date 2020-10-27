@@ -12,7 +12,7 @@ def txt_importer(path_file):
             extension = os.path.splitext(path_file)[1]
             check_comparison(extension, ".txt", "Formato inválido")
             content = file.read().split(sep = '\n')
-            print(content)
+            return content
 
     except FileNotFoundError:
         print(f"Arquivo {path_file} não encontrado", file=sys.stderr)
