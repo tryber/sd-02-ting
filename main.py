@@ -4,13 +4,12 @@ from ting_word_searches.word_search import exists_word, search_by_word
 
 project = Deque()
 
-# remove(project)
-process(project, 'statics/arquivo_teste.txt')
+remove(project)
 process(project, 'statics/teste_2.txt')
 process(project, 'statics/teste_3.txt')
-# file_metadata(project, 3)
-# exists_word(project, 'vid')
+process(project, 'statics/arquivo_teste.txt')
+process(project, 'statics/arquivo_teste.txt')
+remove(project)
+file_metadata(project, 3)
+exists_word(project, 'vid')
 search_by_word(project, 'de')
-
-# print('peek', project.peek(0))
-# print(f'\n\n{project.__str__()}')

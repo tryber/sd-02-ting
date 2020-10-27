@@ -21,7 +21,7 @@ def process(class_instance, path_file):
         "conteudo_arquivo": text,
     }
     class_instance.push_back(result)
-    # print(result)
+    print(result)
     return
 
 
@@ -30,7 +30,6 @@ def remove(class_instance):
         print('Não há o que remover!', file=sys.stderr)
         return
     item = class_instance.pop_front()
-    # class_instance._file_names.remove(item['nome_do_arquivo'])
     print(f'Arquivo {item["nome_do_arquivo"]} removido com sucesso')
     return
 

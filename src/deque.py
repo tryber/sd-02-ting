@@ -24,9 +24,6 @@ class Deque:
     def add_file_contains(self, file):
         return file in self._file_names
 
-    # def push_front(self, value):
-    #     self._data.insert(self.FIRST_ELEMENT, value)
-
     def push_back(self, value):
         self._data.append(value)
         self._file_names.add(value['nome_do_arquivo'])
@@ -38,22 +35,6 @@ class Deque:
             )
             return self._data.pop(self.FIRST_ELEMENT)
         return None
-
-    # def pop_back(self):
-    #     if self._data:
-    #         return self._data.pop()
-    #     return None
-
-    # def peek_front(self):
-    #     if len(self._data) > 1:
-    #         return self._data[self.FIRST_ELEMENT]
-    #     return None
-
-    # def clear(self):
-    #     self._data = list()
-
-    # def exists(self, value):
-    #     return value in self._data
 
     def peek(self, position):
         if 0 < position < len(self._data):
