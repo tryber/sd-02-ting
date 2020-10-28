@@ -6,15 +6,11 @@ class Queue:
         self.file_names = {}
 
     def insert(self, elem):
-        if (elem["nome_do_arquivo"] in self.file_names):
-            return
         self.queue[self.index] = elem
         self.index += 1
-        self.file_names[elem["nome_do_arquivo"]] = 1
 
     def pop(self):
-        elem = self.queue[self.curr]
-        del self.queue[self.curr]
+        elem = self.queue.pop(self.curr)
         self.curr += 1
         return elem
 
@@ -26,5 +22,5 @@ class Queue:
             return
         return self.queue[position]
 
-    def interavel(self):
+    def interable(self):
         return self.queue.values()

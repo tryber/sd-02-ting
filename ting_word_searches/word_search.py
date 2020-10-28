@@ -20,7 +20,7 @@ def exists_word(word, queue):
                 if does_word_exist(word, setence)
             ],
         }
-        for val in queue.interavel()
+        for val in queue.interable()
     ]
 
 
@@ -38,5 +38,5 @@ def search_by_word(word, queue):
                 if does_word_exist(word, setence)
             ],
         }
-        for val in queue.interavel()
+        for val in queue.interable()
     ]

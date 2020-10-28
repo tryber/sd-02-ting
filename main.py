@@ -6,4 +6,4 @@ queue = Queue()
 
 process('./statics/arquivo_teste.txt', queue)
 
-print(search_by_word('Acima', queue))
+# print(search_by_word('Acima', queue))
