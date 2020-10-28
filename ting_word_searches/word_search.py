@@ -22,8 +22,8 @@ def search_word(word, pattern, flag):
         for index, lines in enumerate(text['linhas_do_arquivo']):
             if pattern.search(lines):
                 data['ocorrencias'].append(
-                    with_content_or_not(lines, index, flag
-                    ))
+                    with_content_or_not(lines, index, flag)
+                    )
                 count_matchs += 1
         words_arr.append(data)
     if (count_matchs == 0):
