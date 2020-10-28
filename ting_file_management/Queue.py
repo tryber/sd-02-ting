@@ -14,6 +14,7 @@ class Queue:
 
     def pop(self):
         elem = self.queue[self.curr]
+        del self.queue[self.curr]
         self.curr += 1
         return elem
 
