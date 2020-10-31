@@ -1,12 +1,10 @@
 import sys
 from os import path
-from file_management import txt_importer
+from ting_file_management.file_management import txt_importer
 
 
-def process(path_file):
+def process(class_deque, path_file):
     exist = path.exists(path_file) or path.exists(f"./{path_file}")
-    list_text = []
-    line_count = 0
 
     if not exist:
         print(f"Arquivo {path_file} não existe", file=sys.stderr)
@@ -17,23 +15,32 @@ def process(path_file):
 
     text_read = txt_importer(path_file)
 
-    for line in text_read:
-        line_count += 1
-    list_text.append({
+    if class_deque.file_name(path_file):
+        print(f"Arquivo {path_file} já incluso", file=sys.stderr)
+        return
+    list_text = {
         "nome_do_arquivo": path_file,
-        "qtd_linhas": line_count,
-        "linhas do arquivo": text_read
-    })
-
-    return list_text
-
-
-def remove():
-    raise NotImplementedError
+        "qtd_linhas": len(text_read),
+        "linhas_do_arquivo": text_read,
+    }
+    class_deque.push_back(list_text)
+    print(list_text)
+    return
 
 
-def file_metadata(position):
-    raise NotImplementedError
+def remove(class_deque):
+    if len(class_deque) == 0:
+        print("Não há arquivos a serem removidos", file=sys.stderr)
+        return
+    arquivo = class_deque.pop_front()
+    print(f"Arquivo {arquivo['nome_do_arquivo']} removido com sucesso")
+    return
 
 
-print(process("./statics/arquivo_teste.txt"))
+def file_metadata(class_deque, position):
+    arquivo = class_deque.peek_any(position)
+    if arquivo == "Posição Inválida":
+        print("Posição Inválida", file=sys.stderr)
+        return
+    print(arquivo)
+    return
