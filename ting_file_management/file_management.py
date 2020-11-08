@@ -1,9 +1,10 @@
 import sys
+# lançamento de ValueError baseado em trabalho de Douglas
 
 
 def txt_importer(path_file):
     try:
-        with open(path_file, "r") as file:
+        with open(path_file, encoding="utf8", mode="r") as file:
             if not path_file.endswith(".txt"):
                 raise ValueError
             file_split = file.read().split(sep="\n")
