@@ -18,7 +18,10 @@ def process(path_file):
 
 
 def remove():
-    raise NotImplementedError
+    if len(deque):
+        removed_file = deque.popleft()
+        path_file = removed_file["nome_do_arquivo"]
+        print(f"Arquivo {path_file} removido com sucesso")
 
 
 def file_metadata(position):
