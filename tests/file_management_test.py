@@ -15,5 +15,5 @@ def test_txt_importer_extensao_invalida():
 
 
 def test_txt_importer_on_success():
-    file_list = txt_importer(path_arquivo_teste)
-    assert file_list.get_list() == expected_data
+    data = txt_importer(path_arquivo_teste)
+    assert data == expected_data

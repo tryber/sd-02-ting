@@ -3,26 +3,6 @@
 ### Pacote `ting_file_management`
 
 
-#### 2 - Deve haver uma função `process` dentro do módulo `file_process` capaz de ler o arquivo carregado na função anterior e efetuar o preprocessamento do conteúdo.
-
-**Exemplo de retorno**:
-
-```python
-{
-    "nome_do_arquivo": "arquivo_teste.txt", # Nome do arquivo recém adicionado
-    "qtd_linhas": 3,                        # Quantidade de linhas existentes no arquivo
-    "linhas_do_arquivo": [...]              # linhas retornadas pela função do requisito 1
-}
-```
-
-##### As seguintes verificações serão feitas:
-
-- Por padrão deve-se ignorar arquivos com o mesmo nome;
-
-- Não deve haver limites de linhas a serem analisadas;
-
-- O exemplo de saída acima deve ser emitido após cada nova inserção válida, via `stdout`.
-
 #### 3 - Deve haver uma função `remove` dentro do módulo `file_process` capaz de remover o primeiro arquivo processado
 
 ##### As seguintes verificações serão feitas:

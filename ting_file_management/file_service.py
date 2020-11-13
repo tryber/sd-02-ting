@@ -116,6 +116,17 @@ def check_extension(path, expected_extension):
         raise ValueError("Formato inválido")
 
 
+def create_double_list(data):
+    file_list = DoublyLinkedList()
+    for line in data:
+        file_list.insert_last(line)
+    return file_list
+
+
 def file_not_found(path):
     file = path.split("/").pop()
     return "Arquivo {} não encontrado".format(file)
+
+
+def get_file_name(file_path):
+    return file_path.split("/").pop()
