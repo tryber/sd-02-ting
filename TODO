@@ -2,24 +2,6 @@
 
 ### Pacote `ting_file_management`
 
-#### 1 - Deve haver uma função `txt_importer` dentro do módulo `file_management` capaz de importar notícias a partir de um arquivo TXT, utilizando "\n" como separador. Todas as mensagens de erro devem ir para a `stderr`.
-
-**Exemplo simples de um arquivo txt a ser importado:**
-
-```md
-Acima de tudo,
-é fundamental ressaltar que a adoção de políticas descentralizadoras nos obriga
-à análise do levantamento das variáveis envolvidas.
-```
-
-##### As seguintes verificações serão feitas:
-
-- Caso o arquivo TXT não exista, deve ser exibida a mensagem: "`Arquivo {path_file} não encontrado`";
-
-- Caso a extensão do arquivo seja diferente de `.txt`, deve ser exibida uma mensagem: "`Formato inválido`".
-
-- A função deve retornar uma estrutura contendo as linhas do arquivo;
-
 
 #### 2 - Deve haver uma função `process` dentro do módulo `file_process` capaz de ler o arquivo carregado na função anterior e efetuar o preprocessamento do conteúdo.
 
