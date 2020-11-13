@@ -20,7 +20,7 @@ class DoublyLinkedList:
                 position += 1
         return values_list
 
-    def __get_node_at(self, position):
+    def get_node_at(self, position):
         node = None
         if self.head.next != self.tail:
             node = self.head.next
@@ -35,7 +35,7 @@ class DoublyLinkedList:
         elif position >= len(self):
             return self.insert_last(value)
         node = DoublyNode(value)
-        position_node = self.__get_node_at(position)
+        position_node = self.get_node_at(position)
         node.next = position_node
         node.previous = position_node.previous
         node.previous.next = node
@@ -68,7 +68,7 @@ class DoublyLinkedList:
             return self.remove_last()
         remove_node = None
         if not self.is_empty():
-            remove_node = self.__get_node_at(position)
+            remove_node = self.get_node_at(position)
             remove_node_previous = remove_node.previous
             remove_node_next = remove_node.next
             remove_node_previous.next = remove_node_next
@@ -109,6 +109,11 @@ class DoublyNode:
     def reset(self):
         self.nest = None
         self.previous = None
+
+
+class File:
+    def __ini__(self):
+        self.files_list = DoublyLinkedList()
 
 
 def check_extension(path, expected_extension):
