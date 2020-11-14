@@ -19,7 +19,7 @@
 
 - Em caso da posição não existir, deve ser exibida uma mensagem de erro: "`Posição inválida`" na `stderr`.
 
-**Exemplo de retorno**:
+**Exemplo de retorno**:clecd
 
 ```python
 {

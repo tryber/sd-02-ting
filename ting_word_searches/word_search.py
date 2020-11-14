@@ -6,8 +6,8 @@ class FileSearch(File):
     def __ini__(self):
         super().__init__()
 
-    def exists_word(word):
+    def exists_word(self, word):
         raise NotImplementedError
 
-    def search_by_word(word):
+    def search_by_word(self, word):
         raise NotImplementedError

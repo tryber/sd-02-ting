@@ -112,7 +112,7 @@ class DoublyNode:
 
 
 class File:
-    def __ini__(self):
+    def __init__(self):
         self.files_list = DoublyLinkedList()
 
 
