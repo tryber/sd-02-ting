@@ -2,7 +2,7 @@ import inquirer
 # from ting_menu.contants import
 from ting_file_management.file_process import FileProcess
 from ting_word_searches.word_search import FileSearch
-from ting_menu.constants import (MENUS, MENU_MAIN, MENUS_ACCESS)
+from ting_menu.constants import (MENUS, MENUS_ACCESS)
 
 
 def interface_back(create_menu, menu_options):
