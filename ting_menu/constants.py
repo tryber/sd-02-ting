@@ -1,3 +1,5 @@
+from ting_file_management.file_service import DoublyLinkedList
+
 OPTION_BACK = ("back", "Voltar ao menu anterior")
 
 OPTION_OUT = ("out", "Sair")
@@ -27,3 +29,5 @@ MENUS = {
     "menu_process": MENU_PROCESS,
     "main": MENU_MAIN
 }
+
+MENUS_ACCESS = DoublyLinkedList()

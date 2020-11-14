@@ -2,52 +2,68 @@ import inquirer
 # from ting_menu.contants import
 from ting_file_management.file_process import FileProcess
 from ting_word_searches.word_search import FileSearch
-from ting_menu.constants import MENUS
+from ting_menu.constants import (MENUS, MENU_MAIN, MENUS_ACCESS)
 
 
-def interface_back(create_menu, before_options):
-    create_menu(before_options)
+def interface_back(create_menu, menu_options):
+    menus = MENUS_ACCESS.get_list()
+    menu_index = menus.index(menu_options)
+    create_menu(menus[menu_index - 1])
 
 
-def interface_exists_word(create_menu, before_options):
-    prompt_text(
-        "Digite a palavra a ser consultada",
-        FileSearch,
-        "exists_word",
-    )
-    create_menu(before_options)
+def interface_exists_word(create_menu, menu_options):
+    word = prompt_text("Digite a palavra a ser consultada")
+    try:
+        instante = FileSearch()
+        instante.exists_word(word)
+    except Exception as err:
+        print("ERROR", err)
+    finally:
+        create_menu(menu_options)
 
 
-def interface_file_metadata(create_menu, before_options):
+def interface_file_metadata(create_menu, menu_options):
     position = prompt_text("Digite a posição do arquivo a ser detalhado")
-    FileProcess.file_metadata(int(position))
-    create_menu(before_options)
+    try:
+        FileProcess.file_metadata(int(position))
+    except Exception as err:
+        print("ERROR", err)
+    finally:
+        create_menu(menu_options)
 
 
-def interface_out():
-    return print("Bolivar Say: GoodBye and Stay High")
+def interface_out(create_menu, menu_options):
+    return print("xoxo xoxo xoxo xoxo xoxo xoxo")
 
 
-def interface_process(create_menu, before_options):
+def interface_process(create_menu, menu_options):
     path = prompt_text("Digite o path do arquivo TXT a ser importado")
-    FileProcess.process(path)
-    create_menu(before_options)
+    try:
+        FileProcess.process(path)
+    except Exception as err:
+        print("ERROR", err)
+    finally:
+        create_menu(menu_options)
 
 
-def interface_remove(create_menu, before_options):
+def interface_remove(create_menu, menu_options):
     remove = prompt_confirm(
         "Digite Y para confirmar a remoção ou N para cancelar",
     )
     if remove:
         FileProcess.remove()
-    create_menu(before_options)
+    create_menu(menu_options)
 
 
-def interface_search_by_word(create_menu, before_options):
-    instance = FileSearch()
+def interface_search_by_word(create_menu, menu_options):
     word = prompt_text("Digite a palavra a ser consultada")
-    instance.search_by_word(word)
-    create_menu(before_options)
+    try:
+        instante = FileSearch()
+        instante.search_by_word(word)
+    except Exception as err:
+        print("ERROR", err)
+    finally:
+        create_menu(menu_options)
 
 
 def prompt_confirm(message):
@@ -81,6 +97,7 @@ INTERFACES = {
 def create_menu(menu_options):
     option_values = []
     option_keys = []
+    MENUS_ACCESS.insert_first(menu_options)
     for option in menu_options:
         option_keys.append(option[0])
         option_values.append(option[1])

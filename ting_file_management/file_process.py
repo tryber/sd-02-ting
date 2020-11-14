@@ -12,17 +12,19 @@ class FileProcess():
     def process(cls, file_path):
         file_name = get_file_name(file_path)
         if file_name not in cls.PROCESSED:
-            cls.PROCESSED[file_name] = True
             data = txt_importer(file_path)
+            cls.PROCESSED[file_name] = True
             lines = '\n'.join(data)
             content_list = create_double_list(data)
             quantity_line = len(data)
             cls.FILES_LIST.insert_last(
                 {"name": file_name,
                  "content": content_list})
-            return print(f"nome_do_arquivo: {file_name},\n\
+            print(f"nome_do_arquivo: {file_name},\n\
 qtd_linhas: {quantity_line},\n\
 linhas_do_arquivo: \n{lines}")
+            return {"nome_do_arquivo": file_name, "qtd_linhas": quantity_line,
+                    "linhas_do_arquivo": lines}
         print(f"Arquivo {file_name} já processado")
 
     @classmethod
@@ -30,6 +32,7 @@ linhas_do_arquivo: \n{lines}")
         file = cls.FILES_LIST.remove_first()
         if file:
             file_name = file.value["name"]
+            del cls.PROCESSED[file_name]
             print(f"Arquivo {file_name} removido com sucesso")
 
     @classmethod

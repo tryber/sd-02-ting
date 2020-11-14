@@ -22,11 +22,15 @@ class DoublyLinkedList:
 
     def get_node_at(self, position):
         node = None
-        if self.head.next != self.tail:
+        if not self.is_empty() and position > 0 and position < self.__length:
             node = self.head.next
             while position > 0:
                 node = node.next
                 position -= 1
+        elif not self.is_empty() and position <= 0:
+            node = self.head.next
+        elif not self.is_empty() and position > self.__length:
+            node = self.head.previous
         return node
 
     def insert_at(self, value, position):
