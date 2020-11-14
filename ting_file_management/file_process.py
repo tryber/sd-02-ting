@@ -8,6 +8,7 @@ class FileProcess():
 
     FILES_LIST = DoublyLinkedList()
 
+    # O(1)
     @classmethod
     def process(cls, file_path):
         file_name = get_file_name(file_path)
@@ -27,6 +28,7 @@ linhas_do_arquivo: \n{lines}")
                     "linhas_do_arquivo": lines}
         print(f"Arquivo {file_name} já processado")
 
+    # O(n1
     @classmethod
     def remove(cls):
         file = cls.FILES_LIST.remove_first()
@@ -35,6 +37,7 @@ linhas_do_arquivo: \n{lines}")
             del cls.PROCESSED[file_name]
             print(f"Arquivo {file_name} removido com sucesso")
 
+    # O(n)
     @classmethod
     def file_metadata(cls, position):
         file = cls.FILES_LIST.get_node_at(position)

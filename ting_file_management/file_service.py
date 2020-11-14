@@ -9,6 +9,7 @@ class DoublyLinkedList:
     def __len__(self):
         return self.__length
 
+    # worst-case: O(n), better-case: O(1)
     def get_list(self):
         values_list = []
         position = 0
@@ -115,11 +116,13 @@ class DoublyNode:
         self.previous = None
 
 
+# O(1)
 def check_extension(path, expected_extension):
     if expected_extension not in path:
         raise ValueError("Formato inválido")
 
 
+# O(n)
 def create_double_list(data):
     file_list = DoublyLinkedList()
     for line in data:
@@ -127,10 +130,12 @@ def create_double_list(data):
     return file_list
 
 
+# O(1)
 def file_not_found(path):
     file = path.split("/").pop()
     return "Arquivo {} não encontrado".format(file)
 
 
+# O(1)
 def get_file_name(file_path):
     return file_path.split("/").pop()
