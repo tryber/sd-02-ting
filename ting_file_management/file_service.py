@@ -111,11 +111,6 @@ class DoublyNode:
         self.previous = None
 
 
-class File:
-    def __init__(self):
-        self.files_list = DoublyLinkedList()
-
-
 def check_extension(path, expected_extension):
     if expected_extension not in path:
         raise ValueError("Formato inválido")

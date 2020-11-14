@@ -1,5 +1,5 @@
 
-from ting_menu.contants import MENUS
+from ting_menu.constants import MENUS
 from ting_menu.services import create_menu
 
 

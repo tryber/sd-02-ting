@@ -1,8 +1,8 @@
 from ting_file_management.file_service import (
-    get_file_name, create_double_list, File)
+    get_file_name, create_double_list)
 
 
-class FileSearch(File):
+class FileSearch():
     def __ini__(self):
         super().__init__()
 

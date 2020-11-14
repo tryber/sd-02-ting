@@ -2,7 +2,7 @@ import inquirer
 # from ting_menu.contants import
 from ting_file_management.file_process import FileProcess
 from ting_word_searches.word_search import FileSearch
-from ting_menu.contants import MENUS
+from ting_menu.constants import MENUS
 
 
 def interface_back(create_menu, before_options):
@@ -11,7 +11,7 @@ def interface_back(create_menu, before_options):
 
 def interface_exists_word(create_menu, before_options):
     prompt_text(
-        "Digite a palavra a ser consultada:",
+        "Digite a palavra a ser consultada",
         FileSearch,
         "exists_word",
     )
@@ -19,11 +19,8 @@ def interface_exists_word(create_menu, before_options):
 
 
 def interface_file_metadata(create_menu, before_options):
-    return prompt_text(
-        "Digite a posição do arquivo a ser detalhado:",
-        FileProcess,
-        "file_metadata"
-    )
+    position = prompt_text("Digite a posição do arquivo a ser detalhado")
+    FileProcess.file_metadata(int(position))
     create_menu(before_options)
 
 
@@ -32,37 +29,31 @@ def interface_out():
 
 
 def interface_process(create_menu, before_options):
-    return prompt_text(
-        "Digite o path do arquivo TXT a ser importado:",
-        FileProcess,
-        "process"
-    )
+    path = prompt_text("Digite o path do arquivo TXT a ser importado")
+    FileProcess.process(path)
     create_menu(before_options)
 
 
 def interface_remove(create_menu, before_options):
-    return prompt_text(
-        "Digite Y para confirmar a remoção ou N para cancelar:",
-        FileProcess,
-        "remove"
+    remove = prompt_confirm(
+        "Digite Y para confirmar a remoção ou N para cancelar",
     )
+    if remove:
+        FileProcess.remove()
     create_menu(before_options)
 
 
 def interface_search_by_word(create_menu, before_options):
-    return prompt_text(
-        "Digite a palavra a ser consultada:",
-        FileSearch,
-        "search_by_word"
-    ),
+    instance = FileSearch()
+    word = prompt_text("Digite a palavra a ser consultada")
+    instance.search_by_word(word)
     create_menu(before_options)
 
 
-def prompt_confirm(message, callback_class, callback_method):
-    interface = [inquirer.Confirm("remove", message=message)]
-    value = inquirer.prompt(interface)
-    if(value):
-        callback_class[callback_method]()
+def prompt_confirm(message):
+    interface = [inquirer.Confirm("option", message=message)]
+
+    return inquirer.prompt(interface)["option"]
 
 
 def prompt_list(message, menu_options):
@@ -71,12 +62,9 @@ def prompt_list(message, menu_options):
     return inquirer.prompt(interface)["option"]
 
 
-def prompt_text(message, callback_class, callback_method):
+def prompt_text(message):
     interface = [inquirer.Text("option", message=message)]
-    value = inquirer.prompt(interface)["option"]
-    if value:
-        return callback_class[callback_method](value)
-    return callback_class[callback_method]()
+    return inquirer.prompt(interface)["option"]
 
 
 INTERFACES = {
@@ -91,10 +79,16 @@ INTERFACES = {
 
 
 def create_menu(menu_options):
-    option = prompt_list(
-        "Welcome to Bolivar Ting - Choose a Menu", menu_options)
-    isMenu = option.split("_")[0] == "menu"
+    option_values = []
+    option_keys = []
+    for option in menu_options:
+        option_keys.append(option[0])
+        option_values.append(option[1])
+    option_value = prompt_list(
+        "Welcome to Bolivar Ting - Choose a Menu", option_values)
+    option_key = option_keys[option_values.index(option_value)]
+    isMenu = option_key.split("_")[0] == "menu"
     if isMenu:
-        create_menu(MENUS[option])
+        create_menu(MENUS[option_key])
     else:
-        INTERFACES[option](create_menu, menu_options)
+        INTERFACES[option_key](create_menu, menu_options)
