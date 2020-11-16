@@ -1,0 +1,45 @@
+#### 7 - Análise assintótica no gerenciamento de arquivos.
+
+##### Pacote `ting_file_management`
+
+##### Qual a complexidade do módulo para as operações:
+
+- Inserção de um novo arquivo: O(1)
+
+- Remover um arquivo da estrutura  O(1)
+
+- Visualizar os metadados de um arquivo pela posição O(n)
+
+##### Pacote `ting_word_searches`
+
+##### Qual a complexidade do módulo para as operações:
+
+- Consultar uma palavra com a base de arquivos vazia O(1)
+
+- Consultar uma palavra com a base possuindo um arquivo que possui apenas a palavra pesquisada O(n)
+
+- Consultar uma palavra com a base possuindo N arquivos, onde a palavra procurada não se encontra presente O(n)
+
+#### 13 - A cobertura de testes unitários do pacote deve ser de no mínimo 90%.
+
+##### Pacote `ting_file_management`
+
+##### As seguintes verificações serão feitas:
+
+- Todos os testes que envolvem mensagens na saída padrão ou de erro, devem ter sua saída redirecionada para _Fakes_ com `StringIO`;
+
+- Todos os testes que envolvem manipulação de arquivos criam _Fakes_ com `StringIO`;
+
+- A cobertura de testes é de no mínimo 90%.
+
+#### Pacote `ting_word_searches`
+
+##### As seguintes verificações serão feitas:
+
+- Todos os testes que envolvem mensagens na saída padrão ou de erro, devem ter sua saída redirecionada para _Fakes_ com `StringIO`;
+
+- Todos os testes que envolvem manipulação de arquivos criam _Fakes_ com `StringIO`;
+
+- A cobertura de testes é de no mínimo 90%.
+
+---

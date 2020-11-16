@@ -1,10 +1,14 @@
-# Boas vindas ao repositório do projeto TING(Trybe is not Google)!
+# TING(Trybe is not Google)!
 
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
+Último projeto amoooooooooooooooooooooooooooooooooooooooooo
 
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir desse repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
+- Ambiente virtual: `python3 -m venv .venv && source .venv/bin/activate`
 
----
+- Dependências: `python3 -m pip install -r requirements.txt`
+
+- Caminho: export PYTHONPATH="\${PYTHONPATH}:/home/anderson.bolivar/Documents/projects/sd-02-ting"
+
+- Estilo: `python3 -m flake8`
 
 ## Instruções para entregar seu projeto:
 
@@ -98,15 +102,15 @@ Este repositório já contém um _template_ com a estrutura de diretórios e arq
 ```md
 .
 ├── statics
-│   ├── arquivo_teste.txt
-│   ├── novo_paradigma_globalizado.txt
-│   └── novo_paradigma_globalizado-min.txt
+│ ├── arquivo_teste.txt
+│ ├── novo_paradigma_globalizado.txt
+│ └── novo_paradigma_globalizado-min.txt
 ├── tests
 ├── ting_file_management
-│   ├── file_management.py
-│   └── file_process.py
+│ ├── file_management.py
+│ └── file_process.py
 ├── ting_word_searches
-│   └── word_search.py
+│ └── word_search.py
 ├── README.md
 ├── requirements.txt
 └── setup.cfg
@@ -161,7 +165,6 @@ Acima de tudo,
 - Caso a extensão do arquivo seja diferente de `.txt`, deve ser exibida uma mensagem: "`Formato inválido`".
 
 - A função deve retornar uma estrutura contendo as linhas do arquivo;
-
 
 #### 2 - Deve haver uma função `process` dentro do módulo `file_process` capaz de ler o arquivo carregado na função anterior e efetuar o preprocessamento do conteúdo.
 
@@ -218,18 +221,20 @@ Acima de tudo,
 - A busca deve ser _case insensitive_ e deve retornar uma lista no formato:
 
 ```json
-[{
-  "palavra": "de",
-  "arquivo": "arquivo_teste.txt",
-  "ocorrencias": [
-    {
-      "linha": 1
-    },
-    {
-      "linha": 2
-    }
-  ]
-}]
+[
+  {
+    "palavra": "de",
+    "arquivo": "arquivo_teste.txt",
+    "ocorrencias": [
+      {
+        "linha": 1
+      },
+      {
+        "linha": 2
+      }
+    ]
+  }
+]
 ```
 
 - Caso a palavra não seja encontrada em nenhum arquivo, deve-se retornar uma lista vazia.
@@ -241,20 +246,22 @@ Acima de tudo,
 - A busca deve ser _case insensitive_ e deve retornar uma lista no formato:
 
 ```json
-[{
-  "palavra": "de",
-  "arquivo": "arquivo_teste.txt",
-  "ocorrencias": [
-    {
-      "linha": 1,
-      "conteudo": "Acima de tudo,"
-    },
-    {
-      "linha": 2,
-      "conteudo": "é fundamental ressaltar que a adoção de políticas descentralizadoras nos obriga"
-    }
-  ]
-}]
+[
+  {
+    "palavra": "de",
+    "arquivo": "arquivo_teste.txt",
+    "ocorrencias": [
+      {
+        "linha": 1,
+        "conteudo": "Acima de tudo,"
+      },
+      {
+        "linha": 2,
+        "conteudo": "é fundamental ressaltar que a adoção de políticas descentralizadoras nos obriga"
+      }
+    ]
+  }
+]
 ```
 
 - Caso a palavra não seja encontrada em nenhum arquivo, deve-se retornar uma lista vazia.
@@ -271,7 +278,7 @@ Acima de tudo,
 
 - Inserção de um novo arquivo
 
-- Remover um arquivo da estrutura 
+- Remover um arquivo da estrutura
 
 - Visualizar os metadados de um arquivo pela posição
 
@@ -289,7 +296,7 @@ Acima de tudo,
 
 ## Requisitos extras:
 
-⚠️  Requisitos não serão avaliados ⚠️
+⚠️ Requisitos não serão avaliados ⚠️
 
 ### Pacote `ting_menu`
 
@@ -341,7 +348,6 @@ Selecione uma das opções a seguir:
 
 - Caso a opção não exista, exiba a mensagem de erro "Opção inválida" na `stderr`.
 
-
 #### 10 - Ao selecionar uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada e seu resultado deve ser exibido.
 
 ##### As seguintes verificações serão feitas:
@@ -380,7 +386,6 @@ Selecione uma das opções a seguir:
 - Caso a opção `4` seja selecionada, deve-se encerrar a execução do script (dica: verifique o `exit code`);
 
 - Após finalizar a execução de uma ação(exceto a 4), a sessão do script não deve ser encerrada.
-
 
 #### 12 - Ao selecionar uma opção do menu de opções e inserir as informações necessárias, a ação adequada deve ser disparada e seu resultado deve ser exibido.
 
