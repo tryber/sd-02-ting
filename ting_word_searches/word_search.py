@@ -8,7 +8,7 @@ class FileSearch(FileProcess):
         super().__init__()
         self.FILES_LIST = FileProcess.FILES_LIST
 
-    # O(n)
+    # O(n*m)
     def exists_word(self, word):
         report = []
         files_list = self.FILES_LIST.get_list()
@@ -19,7 +19,7 @@ class FileSearch(FileProcess):
         print(report)
         return report
 
-    # O(n)
+    # O(n*m)
     def search_by_word(self, word):
         report = []
         files_list = self.FILES_LIST.get_list()
